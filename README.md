@@ -1,2 +1,2 @@
 ## app
-### _The race day companion app for coaches, athletes and race officials_
+### _The PWA for alpineTiming users_
