@@ -1,0 +1,16 @@
+.navbar {
+    height: 100%;
+    width: 225px;
+    margin: 0;
+    padding: 0;
+    border-right: 2px solid black;
+}
+
+ul {
+    margin: 0;
+    list-style: none;
+}
+
+li {
+    
+}
