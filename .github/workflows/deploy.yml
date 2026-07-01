@@ -1,0 +1,29 @@
+name: Deploy Code to Project LXC
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'assets/**'
+      - 'css/**'
+      - 'html/**'
+      - 'js/**'
+      - 'manifest.json'
+      - 'serviceworker.js'
+jobs:
+  deploy:
+    runs-on: [self-hosted, alpinecommand-lxc]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy to Nginx Web Server
+        run: |
+          rsync -av --delete \
+            --exclude '.git' \
+            --exclude '.github' \
+            --exclude 'README.md' \
+            ./ /var/www/html/
+
+      - name: Reload Nginx Web Server
+        run: sudo systemctl reload nginx
